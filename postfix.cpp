@@ -9,46 +9,46 @@ int eval_postfix(vector<pair<int,int> > v) {
   stack<int> s;
   for (auto &p:v) {
     if (p.first == 0) {
-      if (p.second == 0 ) {
-        int x1,x2;
-        x1=s.top();
-        s.pop();
-        x2=s.top();
-        s.pop();
-        int result = x2+x1;
-        s.push(result);
-        cout << result << endl;
-      }
-      if (p.second == 1 ) {
-        int x1,x2;
-        x1=s.top();
-        s.pop();
-        x2=s.top();
-        s.pop();
-        int result = x2-x1;
-        s.push(result);
-        cout << result << endl;
-      }
-      if (p.second == 2 ) {
-        int x1,x2;
-        x1=s.top();
-        s.pop();
-        x2=s.top();
-        s.pop();
-        int result = x2*x1;
-        s.push(result);
-        cout << result << endl; 
-    }
-      if (p.second == 3 ) {
-        int x1,x2;
-        x1=s.top();
-        s.pop();
-        x2=s.top();
-        s.pop();
-        int result = x2/x1;
-        s.push(result);
-        cout << result << endl;
-      }
+        if (p.second == 0 ) {
+            int x1,x2;
+            x1=s.top();
+            s.pop();
+            x2=s.top();
+            s.pop();
+            int result = x2+x1;
+            s.push(result);
+            //cout << result << endl;
+        }
+        if (p.second == 1 ) {
+            int x1,x2;
+            x1=s.top();
+            s.pop();
+            x2=s.top();
+            s.pop();
+            int result = x2-x1;
+            s.push(result);
+            //cout << result << endl;
+        }
+        if (p.second == 2 ) {
+            int x1,x2;
+            x1=s.top();
+            s.pop();
+            x2=s.top();
+            s.pop();
+            int result = x2*x1;
+            s.push(result);
+            //cout << result << endl; 
+        }
+        if (p.second == 3 ) {
+            int x1,x2;
+            x1=s.top();
+            s.pop();
+            x2=s.top();
+            s.pop();
+            int result = x2/x1;
+            s.push(result);
+            //cout << result << endl;
+        }
     } else if(p.first == 1){
       s.push(p.second);
     }

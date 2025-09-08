@@ -18,7 +18,8 @@
         "xutility": "cpp",
         "stack": "cpp",
         "utility": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "queue": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
