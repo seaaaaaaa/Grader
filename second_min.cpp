@@ -11,7 +11,7 @@ int get_second_min(stack<int> &s) {
  //write only in this function, do not declare static
     int size = s.size();
     stack<int> s1 = s;
-    multiset<int> sm;
+    set<int> sm;
     while (!s1.empty()) {
         sm.insert(s1.top());
         s1.pop();
