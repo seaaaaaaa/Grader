@@ -9,6 +9,15 @@
 using namespace std;
 int get_second_min(stack<int> &s) {
  //write only in this function, do not declare static
+    int size = s.size();
+    stack<int> s1 = s;
+    multiset<int> sm;
+    while (!s1.empty()) {
+        sm.insert(s1.top());
+        s1.pop();
+    }
+    auto it =sm.begin();
+    return *(next(sm.begin(),1));
 }
 int main() {
     ios_base::sync_with_stdio(false);cin.tie(0);
