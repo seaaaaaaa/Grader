@@ -2,11 +2,12 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <queue>
 using namespace std;
 int main() {
     int n;
     cin >> n;
-    set<pair<int,int>> s;
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> s;
     
     for (int i =0;i<n;i++) {
         int o;
@@ -14,24 +15,23 @@ int main() {
         if (o==1){
             int start,end;
             cin >> start >> end;
-            s.insert(make_pair(start,end));
-            
-
+            s.push(make_pair(start,end));
         }
-        if (o==2) {
-            set<pair<int,int>> r;
-            pair<int,int> result=*s.begin();
-            for (auto it = next(s.begin());it != s.end();it++) {
-                if ((it->first-result.second)>1) {
-                    r.insert(result);
-                    result = *it;
+        else if (o==2) {
+            priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> r;
+            pair<int,int> result=s.top();
+            priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> s1=s;
+            while(!s1.empty()){
+                pair<int,int> temp=s1.top();
+                if (temp.first-result.second>1){
+                    r.push(result);
+                    result=temp;
                 } else {
-                    result = make_pair(result.first,max(it->second,result.second));
+                    result.second=max(result.second,temp.second);
                 }
-                
+                s1.pop();
             }
-            r.insert(result);
-            cout << "\n";
+            r.push(result);
             cout  << r.size()<<endl;
         }
     }
