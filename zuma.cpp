@@ -20,7 +20,7 @@ bool connect(list<int> &l, list<int>::iterator &it , int v){
         start--;
     }
     if(count>=3){
-        it = l.erase(start,end);
+        it = l.erase(next(start,1),end);
         return true;
     } else {
         return false;

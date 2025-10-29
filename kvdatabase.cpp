@@ -18,7 +18,7 @@ int main(){
             v++;
             int pos,val;
             cin >> pos >> val;
-            m[pos].push_back(make_pair,val); 
+            m[pos].push_back(make_pair(v,val)); 
         }
         if(o=="A"){
             int pos,ver;
@@ -27,10 +27,10 @@ int main(){
                 cout << -1 << "\n";
             
             } else {
-                vector<pair<int,int>> vec = m[pos];
-                auto it = lower_bound(vec.begin(),vec.end(),make_pair(ver+1,-1));
-                
-                if(it==vec.begin()){
+
+                auto it = lower_bound(m[pos].begin(),m[pos].end(),make_pair(ver+1,-1));
+
+                if(it==m[pos].begin()){
                     cout << -1 << "\n";
                 } else {
                     it--;

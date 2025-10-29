@@ -11,6 +11,7 @@ void CP::queue<T>::remove_many(std::vector<size_t> pos)
 {
   // your code here
   CP::queue<T> temp;
+
   std::vector<bool> removed(mSize, false);
   for(auto &p : pos){
     removed[p] = true;
@@ -20,7 +21,7 @@ void CP::queue<T>::remove_many(std::vector<size_t> pos)
       temp.push(mData[(mFront + i) % mCap]);
     }
   }
-  delete[] mData;
+  //delete[] mData;
   *this = temp;
 }
 

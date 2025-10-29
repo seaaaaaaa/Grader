@@ -4,7 +4,10 @@
 #include <queue>
 #include "queue.h"
 #include "student.h"
-using namespace std;
+
+using std::cin;
+using std::cout;
+using std::endl;
 
 int main()
 {
