@@ -20,9 +20,10 @@ void CP::list<T>::extract(const T& value,iterator a, iterator b,CP::list<T>& out
         }
     }
     for (int i = 0; i < n; i++) {
-        node *tmp = new node(value, output.begin().ptr->prev, output.begin().ptr);
-        output.begin().ptr->prev->next = tmp;
-        output.begin().ptr->prev = tmp;
+        auto it = output.begin();
+        node *tmp = new node(value, it.ptr->prev, it.ptr);
+        it.ptr->prev->next = tmp;
+        it.ptr->prev = tmp;
         output.mSize++;
     }
 }
