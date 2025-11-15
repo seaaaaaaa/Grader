@@ -194,52 +194,7 @@ class list
     }
 
     void reorder(int pos,std::vector<int> selected) {
-        //write your code only here
-        // 1. Find the insertion point node
-        node* original_pos = mHeader;
-        for (int i = 0; i <= pos; i++) {
-            original_pos = original_pos->next;
-        }
-
-        // 2. Gather all node POINTERS and DATA before modifying the list
-        //    This solves the "index changing" bug.
-        std::vector<node*> nodes_to_delete;
-        std::vector<T> data_to_insert; 
-
-        for (auto &index : selected) {
-            node* target = mHeader;
-            for (int i = 0; i <= index; i++) {
-                target = target->next;
-            }
-            nodes_to_delete.push_back(target);
-            data_to_insert.push_back(target->data); // Copy the data
-        }
-
-        // 3. Delete all the original nodes
-        //    (This is safe in std::list as erase only invalidates the
-        //     iterator to the element being erased)
-        for (auto &node_ptr : nodes_to_delete) {
-            erase(iterator(node_ptr)); 
-            // We assume erase() correctly handles mSize--
-        }
-
-        // 4. Insert the new nodes with the copied data
-        //    We insert *before* original_pos. To keep the
-        //    order from 'selected', we must iterate in REVERSE.
-        //    Example: {C, F}. We insert F, then C.
-        //    List: [F, original_pos] -> [C, F, original_pos]
-        for (int i = 0 ; i < data_to_insert.size(); i++) {
-            // Create the new node and link it
-            node* insert_node = new node(data_to_insert[i], original_pos->prev, original_pos);
-            
-            // Update neighbors to point to the new node
-            original_pos->prev->next = insert_node;
-            original_pos->prev = insert_node;
-            
-            // Don't forget to increment the list size!
-            mSize++;
-        }
-      
+      //write your code only here
     }
 
 };
@@ -289,3 +244,4 @@ int main() {
   std::cout << std::endl;
 
 }
+
