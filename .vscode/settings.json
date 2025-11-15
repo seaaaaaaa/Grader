@@ -78,7 +78,12 @@
         "mutex": "cpp",
         "print": "cpp",
         "ratio": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "chrono": "cpp",
+        "forward_list": "cpp",
+        "functional": "cpp",
+        "random": "cpp",
+        "xhash": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
