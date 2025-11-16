@@ -331,16 +331,28 @@ class map_bst
 
 //you can add other function as well BUT CANNOT MODIFY MAIN nor map_bst class
 
+void my_recur(int start, int aux, CP::map_bst<int,int> &bst) {
+  bst[start] = 0;
+  if(aux == 0) return;
+  
+  my_recur(start+aux, aux/2, bst);
+  
+  my_recur(start-aux, aux/2, bst);
+  return;
+}
+
 void gen_best_bst(int n,CP::map_bst<int,int> &bst) {
   //write your code here
   //you can create additional function
   //but you cannot modify main or the map_bst class
-
-  // this is the example code of adding 1..n to the bst in ascending order
-  for (int i = 1;i <= n;i++) {
-    bst[i] = 100;
-  }
+  
+  int start = (n+1)/2;
+  int aux = start/2;
+  
+  my_recur(start,aux, bst);
 }
+
+
 
 int main() {
   int k;
